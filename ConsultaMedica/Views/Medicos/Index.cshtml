@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ConsultaMedica.Models.Medico>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-primary mt-4" asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td style="width:100px">
+                    <a class="btn btn-primary m-2" asp-action="Edit" asp-route-id="@item.MedicoId">Editar</a>
+                </td>
+                <td style="width:100px">
+                    <a class="btn btn-secondary m-2"  asp-action="Details" asp-route-id="@item.MedicoId">Detalhes</a>
+                </td>
+                <td style="width:100px">
+                    <a class="btn btn-danger m-2"  asp-action="Delete" asp-route-id="@item.MedicoId">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
